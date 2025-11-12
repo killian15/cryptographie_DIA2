@@ -32,22 +32,34 @@
 import string
 
 def chiffre_cesar(message,gap):
-    alphabet =string.ascii_lowercase
-    result = ""
+    return "".join([chr((ord(char)+gap)% 1_114_112)for char in message])
 
 
 
-    for char in message:
-            if char in alphabet:
+
+
+
+
+
+
+
+
+
+    #result = ""
+
+
+
+    #for char in message:
+       #     if char in alphabet:
                 
                 
-                result += alphabet[(alphabet.index(char) + gap) % len(alphabet)]
+      #          result += alphabet[(alphabet.index(char) + gap) % 1_114_112]
             
-            else:
+     #       else:
                
-                raise(TypeError)
+    #            raise(TypeError)
 
-    return result
+   # return result
 
 
 
@@ -57,14 +69,22 @@ def dechiffre_cesar(message,gap):
 
 
 
-def brute_force_cesar(message):
-    for decalage in range(1, 26): 
-        texte = dechiffre_cesar(message, decalage)
-        print(f"Décalage {decalage:2d} : {texte}")
+#def brute_force_cesar(message):
+    for gap_possible in range(1_114_112):
+        gap_decrypte=dechiffre_cesar(message_code,gap_possible)
+        if gap_possible[0]in alphabet:
+            print(gap_possible)
+
+
+
+
+       # texte = dechiffre_cesar(message, gap)
+        #print(f"Décalage {gap:2d} : {texte}")
 
 
 
 message_code = chiffre_cesar("bonjour", 20)
+
 print(message_code)
 
 
@@ -73,7 +93,7 @@ message_dechiffre = dechiffre_cesar(message_code, 20)
 
 print("Message chiffré :", message_code)
 print("\n--- Brute Force ---")
-brute_force_cesar(message_code)
+#brute_force_cesar(message_code)
 
 
 
