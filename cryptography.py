@@ -31,6 +31,15 @@ def vigenere_cipher(text, password):
 		crypted_text.append(cesar_cipher(char,current_key))
 
 
+def vigenere_uncipher(text, password):
+	list_of_keys = [ord(char) for char in password]
+	crypted_text = []
+	for index, char in enumerate(text):
+		current_key = list_of_keys[index%len(list_of_keys)]
+		crypted_text.append(cesar_uncipher(char,current_key))
+
+
+
 
 
 
